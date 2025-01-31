@@ -4,7 +4,26 @@ function Landing() {
   return (
     <>
       <div>
-        <h1>land</h1>
+        <button>button to ai page</button>
+        <h1>Popular Dishes</h1>
+        <div>
+          <div>
+            <img src={/*url*/} alt={/*something*/} />
+            <h2>{/*<img foodname*/}</h2>
+          </div>
+          <div>
+            <img src={/*url*/} alt={/*something*/} />
+            <h2>{/*<img foodname*/}</h2>
+          </div>
+          <div>
+            <img src={/*url*/} alt={/*something*/} />
+            <h2>{/*<img foodname*/}</h2>
+          </div>
+          <div>
+            <img src={/*url*/} alt={/*something*/} />
+            <h2>{/*<img foodname*/}</h2>
+          </div>
+        </div>
       </div>
     </>
   )

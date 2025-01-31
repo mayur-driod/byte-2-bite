@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Contact from './pages/Contact'
 import AIpage from './pages/AIpage'
+// import Response from './pages/Response'
+// import Landing from './pages/Landing'
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path='/contact' element={<Contact/>} />
           <Route path='/aipage' element={<AIpage/>} />
+          {/* <Route path='./landing' element={<Landing/>} /> */}
+          {/* <Route path="/response" element={<Response/>} /> */}
         </Routes>
     </>
   )
