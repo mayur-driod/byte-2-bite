@@ -1,0 +1,67 @@
+/* Apply two-tone background for home page */
+.home-page-background {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to left, #92ac7d 50%, #e1d9cc 50%); /* Sap Green & Royal Beige */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main container with shadow */
+.home-content-container {
+    background: #FAF8F1;
+    width: 80%;
+    max-width: 1000px;
+    padding: 40px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.55);
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Sample heading and text styles */
+.home-content-container h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.home-content-container p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 200px;
+}
+
+.home-hamburger{
+    position: absolute;
+    top: 280px;
+    left: 230px;
+    width: 20px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.home-profile{
+    position: absolute;
+    top: 280px;
+    right: 230px;
+    width: 20px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.home-start {
+    background-color: #FFC107; /* Warm golden yellow */
+    color: black;
+    font-size: 20px; /* Slightly large */
+    font-weight: bold;
+    padding: 15px 30px; /* Bigger size */
+    border: none;
+    border-radius: 50px; /* Smooth rounded edges */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.home-start:hover {
+    background-color: #FFB300; /* Slightly darker yellow */
+    transform: scale(1.1); /* Slight pop effect */
+}
