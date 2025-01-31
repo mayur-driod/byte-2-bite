@@ -1,0 +1,31 @@
+.topnav {
+    position: relative; /* Allows absolute positioning inside */
+    width: 100%; /* Adjust width to fit the existing container */
+    height: 100%; /* Ensure it takes full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-links {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between; /* Pushes links to opposite sides */
+    padding: 0 30px;
+}
+
+.bottom-links {
+    position: absolute;
+    bottom: -420px;
+    left: 30px;
+    display: flex;
+    gap: 25px; /* Ensures spacing between links */
+}
+
+.bottom-links a{
+    text-decoration: none;
+    color:black;
+}

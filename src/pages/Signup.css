@@ -1,0 +1,108 @@
+.signup-page {
+    background-color: #d4c1a5; /* Beige background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.signup-container {
+    background-color: #556B2F; /* Green circular form background */
+    width: 400px;
+    height: 400px;
+    padding: 30px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 5px solid #5a7d3b; /* Darker green border */
+}
+
+.signup-title {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.signup-input {
+    width: 70%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 15px;
+    border: none;
+    background: #e0c9c6;
+    outline: none;
+    font-size: 14px;
+}
+
+.signup-button {
+    background-color: #ffc107; /* Yellow button */
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.signup-button:hover {
+    background-color: #ffb300;
+}
+
+.signup-checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+}
+
+.signup-checkbox-container input {
+    margin-right: 5px;
+}
+
+.signup-avatar-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.signup-avatar-upload label {
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-avatar-upload img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.signup-submit {
+    background-color: purple; /* Custom submit button color */
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
