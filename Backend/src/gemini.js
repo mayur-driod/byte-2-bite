@@ -9,23 +9,35 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 /**
  * Generates a recipe based on user inputs.
  * @param {Object} options - User inputs containing:
- *   @property {Array} ingredients - Ingredients the user has
- *   @property {String} diet - Dietary preference (vegetarian, vegan, etc.)
- *   @property {Boolean} has_oven - Whether the user has an oven or not
- *   @property {String} cuisine - Preferred cuisine type (Italian, Indian, etc.)
- *   @property {Number} time - Cooking time limit in minutes
- *   @property {Number} calories - Max calorie count for the dish
- * @returns {Array} - An array of four recipe objects with names, instructions, and images
+ *   @property {Array} ingredients - List of ingredients the user has
+ *   @property {String} diet - Dietary preference (e.g., vegetarian, vegan)
+ *   @property {Boolean} has_oven - Indicates if the user has an oven
+ *   @property {Array} cuisine - Preferred cuisine types (e.g., Italian, Indian)
+ *   @property {Number} time - Maximum cooking time in minutes
+ *   @property {Number} calories - Maximum calorie count for the dish
+ * @returns {Promise<Array>} - A promise that resolves to an array of four recipe objects with names, instructions, and images
  */
 const generateContent = async ({ ingredients, diet, has_oven, cuisine, time, calories }) => {
+    // Constructing the prompt
     // Constructing the prompt
     const prompt = `Suggest four different recipes based on the following details: 
     - Ingredients: ${ingredients.join(", ")}  
     - Diet: ${diet}  
     - Oven: ${has_oven ? "Available" : "Not available"}  
-    - Preferred Cuisine: ${cuisine}  
+    - Preferred Cuisine: ${cuisine.join(", ")}  
     - Max Cooking Time: ${time} minutes  
-    - Max Calories: ${calories}  
+    - Max Calories: ${calories} 
+    
+
+    - if nothing can be found, suggest a recipe with the most common ingredients, or if the preferred cuisine is not available, suggest a similar recipe from a different cuisine.
+    - if ingredients are not available, suggest substitutes.
+    - if the user has a specific recipe in mind, suggest a similar recipe.
+    - Assume the user has basic cooking equipment and ingredients like salt, pepper, oil, etc.
+    - Style the font and color of the recipe instructions to make them more readable.
+    - Increase the font size of the recipe name and Make it bold.
+    - If possible, Mix different cuisines in the recipes.
+    - Try to include all the ingredients provided by the user.
+    - Based on the time limit, suggest recipes that can be cooked quickly. if the user has more time, suggest recipes that require more time to cook and are really good and original. 
 
     Return the response in this structured JSON format:
     [
