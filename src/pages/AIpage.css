@@ -1,5 +1,4 @@
 *{
-    background-color: white;
     color: black;
 }
 
@@ -9,7 +8,7 @@ form {
     margin: auto;
     padding: 20px;
     background: #f9f9f9; /* Lighter background color */
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -32,25 +31,37 @@ input[type="number"] {
     width: 50em;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 25px;
     font-size: 16px;
     box-sizing: border-box; /* Ensure padding and borders are included in element's width/height */
-    background-color: #fff; /* White background for input fields */
+    background-color: #e4e2d7; /* White background for input fields */
     color: #333; /* Darker text color */
 }
 
 /* Focus state for input fields */
 input[type="text"]:focus,
 input[type="number"]:focus {
-    border-color: #80bdff;
+    border-color: #45a049;
     outline: none; /* Remove default browser outline */
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
-/* Checkbox and radio buttons */
-input[type="radio"],
-input[type="checkbox"] {
-    margin-right: 5px;
+input[type="radio"] {
+    appearance: none; /* Remove default styling */
+    width: 18px;
+    height: 18px;
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid #4CAF50; /* Sap green border */
+    background-color: white; /* Background color for unchecked state */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Styling when radio button is checked */
+input[type="radio"]:checked {
+    background-color: #4CAF50; /* Sap green when checked */
+    border-color: #4CAF50; /* Ensure border matches the background color */
 }
 
 /* Cuisine selection styles */
@@ -103,26 +114,28 @@ input[type="checkbox"] {
 
 /* Submit button */
 input[type="submit"] {
-    background-color: #28a745;
+    background-color:#96c76e; /* Sap green */
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 6px;
+    border-radius: 30px; /* Curved edges */
     cursor: pointer;
     font-size: 16px;
     text-transform: uppercase;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
 
+/* Hover state for submit button */
 input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: #45a049; /* Darker shade of sap green on hover */
 }
 
 /* Focus state for submit button */
 input[type="submit"]:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Add a subtle focus effect */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Subtle focus effect */
 }
+
 
 /* Styling for diet section */
 .diet {
@@ -135,4 +148,35 @@ input[type="submit"]:focus {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+input[type="checkbox"] {
+    appearance: none; /* Remove default browser styles */
+    -webkit-appearance: none; /* Safari compatibility */
+    -moz-appearance: none; /* Firefox compatibility */
+    width: 18px;
+    height: 18px;
+    border: 2px solid #4CAF50; /* Sap green border */
+    border-radius: 4px; /* Curved edges */
+    background-color: white; /* Default background */
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Checkbox checked state */
+input[type="checkbox"]:checked {
+    background-color: #4CAF50; /* Sap green when checked */
+    border-color: #4CAF50;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '✔'; /* Unicode checkmark */
+    font-size: 14px;
+    color: white; /* White checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
 }
