@@ -1,9 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import axios from 'axios';
 import { MdAccountCircle } from "react-icons/md";
-
+import './Signup.css';
 
 function Signup() {
   const [sign, setSign] = useState({
@@ -14,35 +13,33 @@ function Signup() {
   });
 
   const [visible, setVisible] = useState(false);
-  const [agree,setAgree] = useState(false);
+  const [agree, setAgree] = useState(false);
   const [avatar, setAvatar] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setSign(prevState => ({
+    setSign((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
-  }
+  };
 
   const handlefilesubmit = (e) => {
     const file = e.target.files[0];
-    console.log("File selected:", file);
+    console.log('File selected:', file);
 
     if (file) {
-      const filepath = URL.createObjectURL(file);
       setAvatar(file);
-      console.log("File path:", filepath);
+      console.log('File path:', URL.createObjectURL(file));
     } else {
-      console.error("No file selected");
+      console.error('No file selected');
     }
-  }
+  };
 
   const handlesubmit = async (e) => {
-  
     e.preventDefault();
     if (!avatar) {
-      console.error("No avatar file selected");
+      console.error('No avatar file selected');
       return;
     }
 
@@ -55,9 +52,9 @@ function Signup() {
 
     const config = {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    }
+        'Content-Type': 'multipart/form-data',
+      },
+    };
 
     try {
       const response = await axios.post('http://localhost:3000/create-user', formData, config);
@@ -65,101 +62,97 @@ function Signup() {
     } catch (error) {
       console.error('There was an error!', error);
     }
-  }
-
-
+  };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-6 py-12">
-      <div className="w-full max-w-md">
-        <h1 className="mb-8 text-center text-3xl font-bold tracking-tight text-gray-900">
-          Sign Up!
-        </h1>
-        <form className="space-y-6 bg-white p-6 rounded-lg shadow-lg" onSubmit={handlesubmit}>
-          <div className="relative">
-            <label htmlFor="Name" className="block text-sm font-medium text-gray-700">Name</label>
+    <div className="signup-container">
+      <div className="signup-form">
+        <h1 className="form-title">Sign Up!</h1>
+        <form onSubmit={handlesubmit}>
+          <div className="input-group">
+            <label htmlFor="Name">Name</label>
             <input
               type="text"
               name="Name"
               value={sign.Name}
               onChange={handleChange}
               required
-              className="bg-gray-200 block w-full rounded-md border-gray-300 px-4 py-2 mt-1 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-300 sm:text-sm"
+              className="input-field"
             />
           </div>
-          <div className="relative">
-            <label htmlFor="Email" className="block text-sm font-medium text-gray-700">Email</label>
+
+          <div className="input-group">
+            <label htmlFor="Email">Email</label>
             <input
               type="email"
               name="Email"
               value={sign.Email}
               onChange={handleChange}
               required
-              className="bg-gray-200 block w-full rounded-md border-gray-300 px-4 py-2 mt-1 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-300 sm:text-sm"
+              className="input-field"
             />
           </div>
-          <div className="relative">
-            <label htmlFor="Password" className="block text-sm font-medium text-gray-700">Password</label>
+
+          <div className="input-group">
+            <label htmlFor="Password">Password</label>
             <input
-              type={visible ? "text" : "password"}
+              type={visible ? 'text' : 'password'}
               name="Password"
               value={sign.Password}
               onChange={handleChange}
               required
-              className=" bg-gray-200 block w-full rounded-md border-gray-300 px-4 py-2 mt-1 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-300 sm:text-sm"
+              className="input-field"
             />
             {visible ? (
-              <AiOutlineEyeInvisible
-                className="absolute top-8 right-3 text-gray-500 cursor-pointer"
-                onClick={() => setVisible(false)}
-                size={24}
-              />
+              <AiOutlineEyeInvisible className="eye-icon" onClick={() => setVisible(false)} />
             ) : (
-              <AiOutlineEye
-                className="absolute top-8 right-3 text-gray-500 cursor-pointer"
-                onClick={() => setVisible(true)}
-                size={24}
-              />
+              <AiOutlineEye className="eye-icon" onClick={() => setVisible(true)} />
             )}
           </div>
-          <div className="relative">
-            <label htmlFor="ConfirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
+
+          <div className="input-group">
+            <label htmlFor="ConfirmPassword">Confirm Password</label>
             <input
-              type={visible ? "text" : "password"}
+              type={visible ? 'text' : 'password'}
               name="ConfirmPassword"
               value={sign.ConfirmPassword}
               onChange={handleChange}
               required
-              className="bg-gray-200 block w-full rounded-md border-gray-300 px-4 py-2 mt-1 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-300 sm:text-sm"
+              className="input-field"
             />
           </div>
 
-          <div>
-            <label htmlFor="avatar" className='block text-sm font-medium text-gray-700'></label>
-            <div className='mt-2 flex items-center'>
-              <span className='inline-block h-8 w-8 rounded-full overflow-hidden'>
-                {avatar?(<img src={URL.createObjectURL(avatar)}/>):(<MdAccountCircle className="h-8 w-8"/>)}
-              </span>
-              <label htmlFor="file-input" className='ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50'>
-                <span>Upload your photo</span>
-                <input type="file" name='avatar' id='file-input' accept='.jpg,.png,.jpeg' 
-                onChange={(e)=>handlefilesubmit(e)}
-                className='sr-only' />
-              </label>
+          <div className="avatar-upload">
+            <label htmlFor="avatar" className="avatar-label">Upload your photo</label>
+            <div className="avatar-preview">
+              {avatar ? (
+                <img src={URL.createObjectURL(avatar)} alt="Avatar" className="avatar-img" />
+              ) : (
+                <MdAccountCircle className="avatar-icon" />
+              )}
             </div>
+            <input
+              type="file"
+              name="avatar"
+              id="file-input"
+              accept=".jpg,.png,.jpeg"
+              onChange={handlefilesubmit}
+              className="file-input"
+            />
           </div>
 
-          <div>
-            <input type="checkbox" value={agree} onChange={()=>setAgree(prev=>!prev)} />
-            <label htmlFor="terms" className="text-sm text-gray-600">I agree to the terms and conditions</label>
+          <div className="terms-checkbox">
+            <input type="checkbox" value={agree} onChange={() => setAgree((prev) => !prev)} />
+            <label htmlFor="terms">I agree to the terms and conditions</label>
           </div>
-          <button
-            type="submit"
-            className="flex w-full justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
-          >
+
+          <button type="submit" className="submit-btn" disabled={!agree}>
             Submit
           </button>
-          <p>already a member? <a href="/login" style={{color: 'blue'}}>Log in</a></p>
+
+          <p className="login-link">
+            Already a member? <a href="/login">Log in</a>
+          </p>
         </form>
       </div>
     </div>
