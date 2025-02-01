@@ -1,0 +1,182 @@
+*{
+    color: black;
+}
+
+/* General form styling */
+form {
+    max-width: 900px; /* Increase form width */
+    margin: auto;
+    padding: 20px;
+    background: #f9f9f9; /* Lighter background color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box; 
+    align-items: left;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333; /* Darker text color */
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="number"] {
+    width: 50em;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensure padding and borders are included in element's width/height */
+    background-color: #e4e2d7; /* White background for input fields */
+    color: #333; /* Darker text color */
+}
+
+/* Focus state for input fields */
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #45a049;
+    outline: none; /* Remove default browser outline */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+input[type="radio"] {
+    appearance: none; /* Remove default styling */
+    width: 18px;
+    height: 18px;
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid #4CAF50; /* Sap green border */
+    background-color: white; /* Background color for unchecked state */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Styling when radio button is checked */
+input[type="radio"]:checked {
+    background-color: #4CAF50; /* Sap green when checked */
+    border-color: #4CAF50; /* Ensure border matches the background color */
+}
+
+/* Cuisine selection styles */
+.cuisine-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.cuisine-tag {
+    padding: 6px 10px;
+    background-color: #ddd;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.cuisine-tag button {
+    margin-left: 6px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Cuisine dropdown styling */
+.cuisine-dropdown {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.cuisine-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.cuisine-dropdown li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color:#96c76e; /* Sap green */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 30px; /* Curved edges */
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Hover state for submit button */
+input[type="submit"]:hover {
+    background-color: #45a049; /* Darker shade of sap green on hover */
+}
+
+/* Focus state for submit button */
+input[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Subtle focus effect */
+}
+
+
+/* Styling for diet section */
+.diet {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.diet label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="checkbox"] {
+    appearance: none; /* Remove default browser styles */
+    -webkit-appearance: none; /* Safari compatibility */
+    -moz-appearance: none; /* Firefox compatibility */
+    width: 18px;
+    height: 18px;
+    border: 2px solid #4CAF50; /* Sap green border */
+    border-radius: 4px; /* Curved edges */
+    background-color: white; /* Default background */
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Checkbox checked state */
+input[type="checkbox"]:checked {
+    background-color: #4CAF50; /* Sap green when checked */
+    border-color: #4CAF50;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '✔'; /* Unicode checkmark */
+    font-size: 14px;
+    color: white; /* White checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
